@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RISD JavaScript Final Project</title>
+<link href="css/final-project.css" type="text/css" rel="stylesheet"/>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/comparison-slider.js" type="text/javascript"></script>
+<script src="js/modal.js" type="text/javascript"></script>
+<!-- This JavaScript Final Project was built, designed, developed, launched by Robert Benenato. Copyright 2018 -->
+</head>
+<body>
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>NEW ENGLAND BREWERIES DIRECTORY</h1>
+<hr>
+
+<h2>State Selection</h2>
+<p style="text-align: center;"><a href="#googlemap">Google Map Locator Also Available</a></p>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show All</button>
+  <button class="btn" onclick="filterSelection('ma')"> Massachusetts</button>
+  <button class="btn" onclick="filterSelection('me')"> Maine</button>
+  <button class="btn" onclick="filterSelection('nh')"> New Hampshire</button>
+  <button class="btn" onclick="filterSelection('ri')"> Rhode Island</button>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+	<span class="close">&times;</span>
+	<p id="address"></p>
+	  <p id="url"></p>
+		<div class="img-comp-container">
+		  <div id="slider" class="img-comp-slider"></div>
+		  <div class="img-comp-img">
+			<img src="https://www.w3schools.com/howto/img_fjords.jpg" width="300" height="200" id="image1">
+		  </div>
+		  <div class="img-comp-img img-comp-overlay">
+			<img src="https://www.w3schools.com/howto/img_forest.jpg" width="300" height="200" id="image2">
+		  </div>
+	  </div>
+  </div>
+</div>
+
+<!-- Breweries Gallery Grid -->
+<div class="row">
+  <div class="column ma">
+    <div class="content">
+      <img src="images/ma-bog-iron-brewing.jpg" alt="Bog Iron Brewing">
+      <button id="myBtn1" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Bog Iron Brewing</button>
+    </div>
+  </div>
+
+  <div class="column ma">
+    <div class="content">
+      <img src="images/ma-craftroots-brewing.jpg" alt="CraftRoots Brewing">
+      <button id="myBtn2" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">CraftRoots Brewing</button>
+    </div>
+  </div>
+
+  <div class="column ma">
+  <div class="content">
+    <img src="images/ma-jacks-abby-brewing.jpg" alt="Jacks Abby Brewing">
+    <button id="myBtn3" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Jack's Abby Brewing</button>
+  </div>
+  </div>
+  
+  <div class="column ma">
+    <div class="content">
+      <img src="images/ma-trillium-brewing.jpg" alt="Trillium Brewing">
+      <button id="myBtn4" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Trillium Brewing</button>
+    </div>
+  </div>
+
+  <div class="column me">
+    <div class="content">
+    <img src="images/me-allagash-brewing.jpg" alt="Allagash Brewing">
+    <button id="myBtn5" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Allagash Brewing</button>
+    </div>
+  </div>
+
+  <div class="column me">
+    <div class="content">
+    <img src="images/me-lone-pine-brewing.jpg" alt="Lone Pine Brewing">
+    <button id="myBtn6" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Lone Pine Brewing</button>
+    </div>
+  </div>
+
+  <div class="column me">
+    <div class="content">
+      <img src="images/me-sea-dog-brewing.jpg" alt="Sea Dog Brewing">
+      <button id="myBtn7" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Sea Dog Brewing</button>
+    </div>
+  </div>
+
+  <div class="column me">
+    <div class="content">
+    <img src="images/me-shipyard-brewing.png" alt="Shipyard Brewing">
+    <button id="myBtn8" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Shipyard Brewing</button>
+    </div>
+  </div>
+
+  <div class="column nh">
+    <div class="content">
+    <img src="images/nh-henniker-brewing.jpg" alt="Henniker Brewing">
+    <button id="myBtn9" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Henniker Brewing</button>
+    </div>
+  </div>
+
+  <div class="column nh">
+    <div class="content">
+    <img src="images/nh-smuttynose-brewery.png" alt="Smuttynose Brewing">
+    <button id="myBtn10" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Smuttynose Brewing</button>
+    </div>
+  </div>
+
+  <div class="column nh">
+    <div class="content">
+    <img src="images/nh-stoneface-brewing.png" alt="Stoneface Brewing">
+    <button id="myBtn11" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Stoneface Brewing</button>
+    </div>
+  </div>
+
+  <div class="column nh">
+    <div class="content">
+    <img src="images/nh-white-birch-brewing.jpg" alt="White Birch Brewing">
+    <button id="myBtn12" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">White Birch Brewing</button>
+    </div>
+  </div>
+
+  <div class="column ri">
+    <div class="content">
+    <img src="images/ri-foolproof-brewing.png" alt="Fool Proof Brewing">
+    <button id="myBtn13" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Foolproof Brewing</button>
+    </div>
+  </div>
+
+  <div class="column ri">
+    <div class="content">
+    <img src="images/ri-grey-sail-brewing.jpg" alt="Grey Sail Brewing">
+    <button id="myBtn14" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Grey Sail Brewing</button>
+    </div>
+  </div>
+
+  <div class="column ri">
+    <div class="content">
+    <img src="images/ri-narragansett-brewery.png" alt="Narragansett Brewery">
+    <button id="myBtn15" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Narragansett Brewery</button>
+    </div>
+  </div>
+
+  <div class="column ri">
+    <div class="content">
+    <img src="images/ri-revival-brewing.jpg" alt="Revival Brewing">
+    <button id="myBtn16" class="myBtn button-style" onmouseover="style.backgroundColor='#B22222'" onmouseout="style.backgroundColor='#D2691E'">Revival Brewing</button>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<script src="js/filter-gallery.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $('.button-style').click(function(){
+    initComparisons();
+  });
+</script>
+
+<!-- Another way to implement the fadeIn method on each modal using this and next
+
+<script type=“text/javascript”>
+$(“[id^=myBtn]“).click(function(){
+ $(this).next(‘.modal’).fadeIn();
+});
+initComparisons();
+</script> -->
+
+<h2 style="margin-top: 100px;"><a id="googlemap">Google Map Locator</a></h2>
+<div id="map"></div>
+
+<script> 
+function initMap(){
+  // Map Options
+  var options = {
+    zoom:8,
+    center:{lat:42.3601,lng:-71.0589}
+    }
+
+  // New Map
+    var map = new google.maps.Map(document.getElementById('map'), options);
+
+addMarker({coords:{lat:41.9668,lng:-71.1870},
+content:'<p>Bog Iron Brewing<br>33 West Main Street<br>Norton, MA 02766<br>(508) 952-0555<br>info@bogironbrewing.com</p>'});
+addMarker({coords:{lat:42.1399,lng:-71.5163},
+content:'<p>CraftRoots Brewing<br>4 Industrial Road<br>Milford, MA 01757<br>(508) 381-1920<br>info@craftrootsbrewing.com</p>'});
+addMarker({coords:{lat:42.2793,lng:-71.4162},
+content:'<p>Jack\'s Abby Craft Lagers<br>100 Clinton Street<br>Framingham, MA 01702<br>(508) 872-0900<br>info@jacksabby.com</p>'});
+addMarker({coords:{lat:42.1584,lng:-71.1448},
+content:'<p>Trillium Brewing<br>110 Shawmut Road<br>Canton, MA 02021<br>(781) 562-0073<br>info@trilliumbrewing.com</p>'});
+addMarker({coords:{lat:43.6591,lng:-70.2568},
+content:'<p>Allagash Brewing<br>50 Industrial Way<br>Portland, ME 04103<br>(207) 878-5385<br>info@allagash.com</p>'});
+addMarker({coords:{lat:43.6591,lng:-70.2568},
+content:'<p>Lone Pine Brewing<br>219 Anderson Street<br>Portland, ME 04101<br>(207) 536-4952<br>info@lonepinebrewery.com</p>'});
+addMarker({coords:{lat:44.8016,lng:-68.7712},
+content:'<p>Sea Dog Brewing<br>26 Front Street<br>Bangor, ME 04401<br>(207) 947-8009<br>info@seadogbrewing.com</p>'});
+addMarker({coords:{lat:43.6415,lng:-70.2409},
+content:'<p>Shipyard Brewing Company<br>86 Newbury Street<br>Portland, ME 04101<br>(207) 761-0807<br>info@shipyard.com</p>'});
+addMarker({coords:{lat:43.1798,lng:-71.8223},
+content:'<p>Henniker Brewing<br>129 Centervale Road<br>Henniker, NH 03242<br>(603) 428-3579<br>info@hennikerbrewing.com</p>'});
+addMarker({coords:{lat:42.9376,lng:-70.8389},
+content:'<p>Smuttynose Brewing<br>105 Towle Farm Road<br>Hampton, NH 03842<br>(603) 436-4026<br>info@smuttynose.com</p>'});
+addMarker({coords:{lat:43.1001,lng:-70.8337},
+content:'<p>Stoneface Brewing<br>436 Shattuck Way<br>Newington, NH 03801<br>(603) 570-2603<br>info@stonefacebrewing.com</p>'});
+addMarker({coords:{lat:42.7654,lng:-71.4676},
+content:'<p>White Birch Brewing<br>460 Amherst Street<br>Nashua, NH 03063<br>(603) 206-5260<br>info@whitebirchbrewing.com</p>'});
+addMarker({coords:{lat:41.8300,lng:-71.3826},
+content:'<p>Foolproof Brewing<br>241 Grotto Ave #1<br>Pawtucket, RI 02860<br>(401) 721-5970<br>info@foolproofbrewing.com</p>'});
+addMarker({coords:{lat:41.3776,lng:-71.8273},
+content:'<p>Grey Sail Brewing<br>63 Canal Street<br>Westerly, RI 02891<br>(401) 212-7592<br>info@greysailbrewing.com</p>'});
+addMarker({coords:{lat:41.8787,lng:-71.3826},
+content:'<p>Narragansett Brewery<br>461 Main Street<br>Pawtucket, RI 02860<br>(401) 437-8970<br>info@narragansettbeer.com</p>'});
+addMarker({coords:{lat:41.7798,lng:-71.4373},
+content:'<p>Revival Brewing<br>505 Atwood Ave<br>Cranston, RI 02920<br>(401) 372-7009<br>info@revivalbrewing.com</p>'});
+
+// Add Marker Function
+function addMarker(props){
+  var marker = new google.maps.Marker({
+     position:props.coords,
+     map:map,
+     icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    });
+
+// Check content
+if(props.content){
+ var infoWindow = new google.maps.InfoWindow({
+    content:props.content
+  });
+
+  marker.addListener('click', function(){
+    infoWindow.open(map, marker);
+   });
+  }
+ }
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWXy5sYtfBs-4YWDvn-nfIpau79cN3w20&callback=initMap"></script>
+</body>
+</html>
